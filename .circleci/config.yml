@@ -21,7 +21,8 @@ jobs:
       - checkout
       - run: |
           echo "Running 3 unit tests.."
-          mvn -B test -Dtest=testGetJob,getUserTest,testGetUserNotFound
+          mvn test
+          # mvn -B test -Dtest=testGetJob,getUserTest,testGetUserNotFound
   publish:
     executor: docker/docker
     steps:
@@ -70,6 +71,10 @@ workflows:
   cicd_flow:
     jobs:
       - build
+        filters:
+            branches:
+              only:
+                - develop
       - test: 
           requires: 
             - build
