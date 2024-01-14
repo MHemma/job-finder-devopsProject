@@ -13,7 +13,7 @@ jobs:
       - checkout
       - run: |
           echo "installing dependencies"
-          mvn -B -DskipTests clean package
+          mvn clean package
   test:
     docker: 
       - image: circleci/openjdk:16.0.1-jdk-buster
