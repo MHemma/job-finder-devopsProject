@@ -72,7 +72,7 @@ workflows:
       - test: 
           requires: 
             - build
-      - publish
+      - publish:
           requires:
             - test
       - pull-and-deploy:
