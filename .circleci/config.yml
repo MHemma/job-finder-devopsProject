@@ -15,7 +15,7 @@ jobs:
           name: Install Dependencies and build 
           command: |
             echo "installing dependencies"
-            mvn clean install -DskipTests
+            mvn clean install
   test:
     docker: 
       - image: cimg/openjdk:17.0.9
