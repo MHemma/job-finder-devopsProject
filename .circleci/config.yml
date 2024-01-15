@@ -26,8 +26,7 @@ jobs:
           command: |
             echo "Running 3 unit tests.."
             mvn test
-            # mvn -Dtest -Dtest=UserServiceImplTest test
-
+            
   publish:
     executor: docker/docker
     steps:
