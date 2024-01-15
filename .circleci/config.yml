@@ -11,7 +11,9 @@ jobs:
       - image: circleci/openjdk:16.0.1-jdk-buster
     steps:
       - checkout
-      - run: |
+      - run: 
+          name: Install Dependencies and build 
+          command: |
           echo "installing dependencies"
           mvn clean package
   test:
@@ -19,7 +21,7 @@ jobs:
       - image: circleci/openjdk:16.0.1-jdk-buster
     steps:
       - checkout
-      - run: |
+      - run: 
           echo "Running 3 unit tests.."
           mvn test
           # mvn -B test -Dtest=testGetJob,getUserTest,testGetUserNotFound
