@@ -61,24 +61,29 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.7.0</version> <!-- Use the latest version -->
+			<scope>test</scope>
+		</dependency>
 		
 	</dependencies>
 
 	<build>
 		<plugins>
 			<plugin>
-				<!-- <groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId> -->
 				<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.11.0</version>
-				<configuration>
-					<image>
-						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
-					</image>
-					<source>1.8</source> <!-- or any other supported Java version -->
-       			 	<target>1.8</target> <!-- or any other supported Java version -->
-				</configuration>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0</version> <!-- Use the latest version -->
+				<dependencies>
+					<dependency>
+						<groupId>org.junit.platform</groupId>
+						<artifactId>junit-platform-surefire-provider</artifactId>
+						<version>1.7.0</version> <!-- Use the latest version -->
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
