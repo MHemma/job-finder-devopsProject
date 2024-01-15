@@ -22,11 +22,9 @@ jobs:
     steps:
       - checkout
       - run: 
-          name: Running tests
-          command: |
-            echo "Running 3 unit tests.."
-            mvn test
-            
+          echo "Running unit tests.."
+          mvn test
+
   publish:
     executor: docker/docker
     steps:
