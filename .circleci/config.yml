@@ -23,10 +23,10 @@ jobs:
       - checkout
       - run: 
           name: Running tests
-          # mvn test
           command: |
             echo "Running 3 unit tests.."
-            mvn -Dtest -Dtest=UserServiceImplTest test
+            mvn test
+            # mvn -Dtest -Dtest=UserServiceImplTest test
 
   publish:
     executor: docker/docker
