@@ -50,10 +50,10 @@ public class UserServiceImplTest {
     //     staticLogger.info("Before all tests in UserControllerTest class");
     // } 
 
-    @BeforeEach
-    public void beforeEach() {
-        logger.info("Before each test in UserServiceImplTest class");
-    }
+    // @BeforeEach
+    // public void beforeEach() {
+    //     logger.info("Before each test in UserServiceImplTest class");
+    // }
     
     @DisplayName("Create User")
     @Test
