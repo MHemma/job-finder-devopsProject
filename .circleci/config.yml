@@ -59,7 +59,7 @@ jobs:
 workflows:
   ci_flow:
     jobs:
-      - build
+      - build:
           filters:
             branches:
               only:
