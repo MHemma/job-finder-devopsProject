@@ -73,10 +73,6 @@ workflows:
   cicd_flow:
     jobs:
       - build:
-          filters:
-            branches:
-              only:
-                - release
       - test: 
           requires: 
             - build
