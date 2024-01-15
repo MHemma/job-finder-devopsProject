@@ -18,7 +18,7 @@ jobs:
             mvn install -DskipTests
   test:
     docker: 
-      - image: circleci/openjdk:16.0.1-jdk-buster
+      - image: cimg/openjdk:17.0.9
     steps:
       - checkout
       - run: 
@@ -76,7 +76,7 @@ workflows:
         filters:
             branches:
               only:
-                - develop
+                - release
       - test: 
           requires: 
             - build
