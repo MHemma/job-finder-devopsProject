@@ -72,7 +72,7 @@ workflows:
             - test
   cicd_flow:
     jobs:
-      - build:
+      - build
       - test: 
           requires: 
             - build
