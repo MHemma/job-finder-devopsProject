@@ -14,8 +14,8 @@ jobs:
       - run: 
           name: Install Dependencies and build 
           command: |
-          echo "installing dependencies"
-          mvn clean package
+            echo "installing dependencies"
+            mvn clean package
   test:
     docker: 
       - image: circleci/openjdk:16.0.1-jdk-buster
