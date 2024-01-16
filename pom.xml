@@ -59,6 +59,13 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- JUnit dependency to install maven and identify tests -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.3.2</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	
 	<build>
@@ -77,16 +84,11 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M7</version>
 				<dependencies>
+				<!-- JUnit Runtime dependency -->
 					<dependency>
 						<groupId>org.junit.jupiter</groupId>
 						<artifactId>junit-jupiter-engine</artifactId>
 						<version>5.4.0</version>
-					</dependency>
-					<dependency>
-						<groupId>org.junit.jupiter</groupId>
-						<artifactId>junit-jupiter-api</artifactId>
-						<version>5.3.2</version>
-						<scope>test</scope>
 					</dependency>
 				</dependencies>
 			</plugin>
