@@ -15,7 +15,7 @@ jobs:
           name: Install Dependencies and build 
           command: |
             echo "installing dependencies"
-            mvn install 
+            mvn install -DskipTests
             # mvn -B -DskipTests clean package
             # # -DskipTests
   test:
