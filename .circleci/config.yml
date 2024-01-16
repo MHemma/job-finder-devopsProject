@@ -19,11 +19,11 @@ jobs:
   test:
     docker: 
       - image: cimg/openjdk:17.0.9
-      verify_dependencies:
-      parameters:
-          - default: true
-          - description: Verify dependencies are valid and available from public sources
-          - type: boolean
+      # verify_dependencies:
+      # parameters:
+      #     - default: true
+      #     - description: Verify dependencies are valid and available from public sources
+      #     - type: boolean
       steps:
       - checkout
       - run: |
