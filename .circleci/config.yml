@@ -51,7 +51,8 @@ jobs:
       - run:
           name: Heroku Container Push With Image From Docker Hub
           command: |
-              heroku container:login
+              # heroku container:login
+              heroku login
               docker tag hemma1108/job-finder:v1.0.1 registry.heroku.com/job-finder-devops-project/web
               #format --- docker tag <image name from docker hub> registry.heroku.com/<app-name>/web
               docker push registry.heroku.com/job-finder-devops-project/web
