@@ -26,9 +26,9 @@ jobs:
       - run:
           name: Running tests
           command: |
-          echo "Running unit tests.."
-          mvn -B test -Dtest=JobServiceImplTest
-          # mvn test
+            echo "Running unit tests.."
+            mvn -B test -Dtest=JobServiceImplTest
+            # mvn test
 
   publish:
     executor: docker/docker
