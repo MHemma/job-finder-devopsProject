@@ -28,8 +28,7 @@ jobs:
           echo "Running 3 unit tests.."
           # verify
           mvn compile
-          mvn test
-          # mvn -B test -Dtest=testGetJob,getUserTest,testGetUserNotFound
+          mvn -B test -Dtest=testGetJob,getUserTest,testGetUserNotFound
 
   publish:
     executor: docker/docker
