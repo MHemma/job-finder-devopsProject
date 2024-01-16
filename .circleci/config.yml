@@ -27,7 +27,7 @@ jobs:
       - run: |
           echo "Running 3 unit tests.."
           # verify
-          mvn compile
+          # mvn compile
           mvn -B test -Dtest=JobControllerTest
 
   publish:
