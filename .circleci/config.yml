@@ -18,12 +18,14 @@ jobs:
             mvn install -DskipTests
   test:
     docker: 
-        - image: cimg/openjdk:17.0.9
+      - image: cimg/openjdk:17.0.9
     steps:
       - checkout
-      - run: |
+      - run:
           echo "Running 3 unit tests.."
-          mvn test -DskipTests
+          mvn test
+          # mvn -B test -Dtest=testGetJob,getUserTest,testGetUserNotFound
+
   publish:
     executor: docker/docker
     steps:
