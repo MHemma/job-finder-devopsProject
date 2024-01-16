@@ -15,9 +15,9 @@ jobs:
           name: Install Dependencies and build 
           command: |
             echo "installing dependencies"
-            mvn -B -DskipTests clean package
-            # mvn install 
-            # -DskipTests
+            mvn install 
+            # mvn -B -DskipTests clean package
+            # # -DskipTests
   test:
     docker: 
       - image: cimg/openjdk:17.0.9
@@ -27,8 +27,8 @@ jobs:
           name: Running tests
           command: |
             echo "Running unit tests.."
-            mvn -B test -Dtest=JobServiceImplTest
-            # mvn test
+            mvn test
+            # mvn -B test -Dtest=JobServiceImplTest
 
   publish:
     executor: docker/docker
