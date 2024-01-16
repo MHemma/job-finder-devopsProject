@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   mvn-java-orb: rdoddi-pro/mvn-java-orb@0.5.1
+  maven: circleci/maven@1.4.1
   docker: circleci/docker@2.1.4
   heroku: circleci/heroku@2.0.0
 
@@ -15,8 +16,8 @@ jobs:
           name: Install Dependencies and build 
           command: |
             echo "installing dependencies"
-            mvn -B clean package
-            # mvn install 
+            # mvn -B clean package
+            mvn install 
             # -DskipTests
   test:
     docker: 
@@ -25,7 +26,8 @@ jobs:
       - checkout
       - run:
           echo "Running 3 unit tests.."
-          maven -Dtest=JobControllerTest
+          verify
+          # maven -Dtest=JobControllerTest
           # mvn -B test -Dtest=testGetJob,getUserTest,testGetUserNotFound
 
   publish:
