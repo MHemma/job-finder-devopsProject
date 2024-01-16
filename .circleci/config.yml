@@ -56,7 +56,7 @@ jobs:
               docker tag hemma1108/job-finder:v1.0.1 registry.heroku.com/job-finder-devops-project/web
               #format --- docker tag <image name from docker hub> registry.heroku.com/<app-name>/web
               docker push registry.heroku.com/job-finder-devops-project/web
-              #format --- docker push <registry.heroku.com/<app-name>/web [to push to heroku container registry]
+              #format --- docker push registry.heroku.com/<app-name>/web [to push to heroku container registry]
               heroku container:release web -a job-finder-devops-project
               # release once in heroku container
 
