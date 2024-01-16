@@ -51,9 +51,9 @@ jobs:
       - run:
           command: |
               heroku container:login
-              docker tag hemma1108/job-finder:v1.0.1 registry.heroku.com/job-finder-devops-project/web
-              docker push registry.heroku.com/job-finder-devops-project/web
-              heroku container:release web -a job-finder-devops-project
+              docker tag hemma1108/job-finder:v1.0.1 registry.heroku.com/job-finder-devops-project-test/web
+              docker push registry.heroku.com/job-finder-devops-project-test/web
+              heroku container:release web -a job-finder-devops-project-test
 workflows:
   ci_flow:
     jobs:
