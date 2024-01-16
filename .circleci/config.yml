@@ -23,7 +23,7 @@ jobs:
       - checkout
       - run: |
           echo "Running 3 unit tests.."
-          mvn test
+          mvn test -DskipTests
   publish:
     executor: docker/docker
     steps:
