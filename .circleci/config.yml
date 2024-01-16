@@ -84,6 +84,7 @@ workflows:
             branches:
               only:
                 - release
+                - release---hemma
       - test: 
           requires: 
             - build
@@ -91,6 +92,7 @@ workflows:
             branches:
               only:
                 - release
+                - release---hemma
       - publish:
           requires:
             - test
@@ -101,6 +103,7 @@ workflows:
             branches:
               only:
                 - release
+                - release---hemma
 
 
 
