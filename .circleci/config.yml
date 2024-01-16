@@ -24,7 +24,7 @@ jobs:
       - image: cimg/openjdk:17.0.9
     steps:
       - checkout
-      - run:
+      - run: |
           echo "Running 3 unit tests.."
           verify
           # maven -Dtest=JobControllerTest
