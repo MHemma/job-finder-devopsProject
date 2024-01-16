@@ -26,8 +26,8 @@ jobs:
       - checkout
       - run: |
           echo "Running 3 unit tests.."
-          verify
-          # maven -Dtest=JobControllerTest
+          # verify
+          mvn -Dtest=JobControllerTest
           # mvn -B test -Dtest=testGetJob,getUserTest,testGetUserNotFound
 
   publish:
