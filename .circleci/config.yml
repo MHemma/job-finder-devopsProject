@@ -24,10 +24,12 @@ jobs:
     steps:
       - checkout
       - run:
-          echo "Running 3 unit tests.."
+          name: Running tests
+          command: |
+          echo "Running unit tests.."
           mvn -B test -Dtest=JobServiceImplTest
           # mvn test
-          
+
   publish:
     executor: docker/docker
     steps:
