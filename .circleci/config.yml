@@ -27,7 +27,8 @@ jobs:
       - run: |
           echo "Running 3 unit tests.."
           # verify
-          mvn -Dtest=JobControllerTest
+          mvn compile
+          mvn test
           # mvn -B test -Dtest=testGetJob,getUserTest,testGetUserNotFound
 
   publish:
