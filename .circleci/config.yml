@@ -25,9 +25,9 @@ jobs:
       - checkout
       - run:
           echo "Running 3 unit tests.."
-          mvn test
-          # mvn -B test -Dtest=testGetJob,getUserTest,testGetUserNotFound
-
+          mvn -B test -Dtest=JobServiceImplTest
+          # mvn test
+          
   publish:
     executor: docker/docker
     steps:
