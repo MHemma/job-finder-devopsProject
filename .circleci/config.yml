@@ -19,9 +19,14 @@ jobs:
   test:
     docker: 
       - image: cimg/openjdk:17.0.9
-    steps:
+      verify_dependencies:
+      parameters:
+          - default: true
+          - description: Verify dependencies are valid and available from public sources
+          - type: boolean
+      steps:
       - checkout
-      - run: 
+      - run: |
           echo "Running 3 unit tests.."
           mvn test
   publish:
