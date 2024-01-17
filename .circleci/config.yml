@@ -5,6 +5,7 @@ orbs:
   maven: circleci/maven@1.4.1
   docker: circleci/docker@2.1.4
   heroku: circleci/heroku@2.0.0
+  synk: snyk/snyk@1.5.0
 
 jobs:
   build:
@@ -29,6 +30,18 @@ jobs:
           # verify
           mvn clean compile
           mvn -B test -Dtest=JobControllerTest
+  scan:
+    docker:
+      - image: cimg/openjdk:17.0.9
+    environment:
+      IMAGE_NAME: hemma1108/job-finder
+    steps:
+      - checkout
+      - setup_remote_docker
+      - docker/check
+      - run: docker build -t $IMAGE_NAME .
+      - snyk/scan:
+          docker-image-name: $IMAGE_NAME
 
   publish:
     executor: docker/docker
@@ -68,14 +81,14 @@ workflows:
           filters:
             branches:
               only:
-                - develop
+                - release---jay
       - test: 
           requires: 
             - build
           filters:
             branches:
               only:
-                - develop
+                - release---jay
       - publish:
           requires:
             - test
@@ -85,14 +98,17 @@ workflows:
           filters:
             branches:
               only:
-                - release
+                - release---jay
       - test: 
           requires: 
             - build
           filters:
             branches:
               only:
-                - release
+                - release---jay
+      - scan:
+          requires:
+            - test
       - publish:
           requires:
             - test
@@ -102,7 +118,7 @@ workflows:
           filters:
             branches:
               only:
-                - release
+                - release---jay
 
 
 
