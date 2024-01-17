@@ -62,11 +62,6 @@ workflows:
   ci_flow:
     jobs:
       - build-and-test
-          filters:
-                branches:
-                  only:
-                    - release
-                    - release---hemma
       - scan:
           requires:
             - build-and-test
