@@ -102,7 +102,7 @@ workflows:
       #         only:
       #           - release
       #           - release---hemma
-      - build-and-test
+      - build-and-test:
           filters:
             branches:
               only:
