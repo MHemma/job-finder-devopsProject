@@ -63,9 +63,10 @@ workflows:
     jobs:
       - build-and-test
           filters:
-            branches:
-              only:
-                - release---hemma
+                branches:
+                  only:
+                    - release
+                    - release---hemma
       - scan:
           requires:
             - build-and-test
