@@ -27,7 +27,9 @@ jobs:
           name: Running tests
           command: |
             echo "Running unit tests.."
-            mvn test
+            mvn clean compile
+            mvn -B test -Dtest=JobServiceImplTest
+            # mvn test
             # mvn -B test -Dtest=JobServiceImplTest
 
   publish:
