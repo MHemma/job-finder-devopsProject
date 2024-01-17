@@ -8,7 +8,7 @@ orbs:
 jobs:
   build-and-test:
     docker:
-      - image: cimg/openjdk:19.0.1
+      - image: cimg/openjdk:17.0.9
     steps:
       - checkout
       - run:
@@ -17,6 +17,19 @@ jobs:
       - run:
           name: Test
           command: mvn test
+  scan:
+    docker:
+      - image: cimg/node:16.10
+    environment:
+      IMAGE_NAME: hemma1108/job-finder
+    steps:
+      - checkout
+      - setup_remote_docker
+      - docker/check
+      - run: docker build -t $IMAGE_NAME .
+      - snyk/scan:
+          docker-image-name: $IMAGE_NAME
+          severity-threshold: HIGH 
   publish:
     executor: docker/docker
     steps:
@@ -48,6 +61,12 @@ workflows:
     jobs:
       - build-and-test:
           filters:
+            branches:
+              only:
+                - release
+                - release---hemma
+      -scan:
+        filters:
             branches:
               only:
                 - release
