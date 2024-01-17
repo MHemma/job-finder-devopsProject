@@ -67,14 +67,6 @@ workflows:
               only:
                 - release
                 - release---hemma
-      - scan:
-          requires:
-              - build-and-test
-          filters:
-            branches:
-              only:
-                - release
-                - release---hemma
       - publish:
           requires:
             - build-and-test
