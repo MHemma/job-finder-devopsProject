@@ -6,42 +6,17 @@ orbs:
   heroku: circleci/heroku@2.0.0
 
 jobs:
-  build:
+  build-and-test:
     docker:
       - image: cimg/openjdk:19.0.1
     steps:
       - checkout
-      - run: 
-          name: Install Dependencies and build 
-          command: |
-            echo "installing dependencies"
-            mvn clean install
-            # mvn -B -DskipTests clean package
-            # # -DskipTests
-  test:
-    docker: 
-      - image: cimg/openjdk:19.0.1
-    steps:
-      - checkout
       - run:
-          name: Running tests
-          command: |
-            echo "Running unit tests.."
-            mvn clean test
-            # mvn clean compile
-            # mvn -B test -Dtest=JobServiceImplTest
-    build-and-test:
-      docker:
-        - image: cimg/openjdk:19.0.1
-      steps:
-        - checkout
-        - run:
-            name: Build
-            command: mvn -B -DskipTests clean package
-        - run:
-            name: Test
-            command: mvn test
-
+          name: Build
+          command: mvn -B -DskipTests clean package
+      - run:
+          name: Test
+          command: mvn test
   publish:
     executor: docker/docker
     steps:
