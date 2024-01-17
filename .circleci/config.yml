@@ -54,7 +54,7 @@ workflows:
                 - release---hemma
       - publish:
           requires:
-            - test
+            - build-and-test
       - pull-and-deploy:
           requires: 
             - publish
