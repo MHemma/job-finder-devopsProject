@@ -67,9 +67,7 @@ workflows:
             branches:
               only:
                 - develop
-      - publish:
-          requires:
-            - test
+                
   cicd_flow:
     jobs:
       - build:
