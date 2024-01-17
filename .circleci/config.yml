@@ -21,9 +21,11 @@ jobs:
       - image: cimg/openjdk:17.0.9
     steps:
       - checkout
-      - run: 
-          echo "Running 3 unit tests.."
-          mvn test
+      - run:
+          name: Running tests
+          command: |
+            echo "Running unit tests.."
+            mvn test
           # mvn -B test -Dtest=testGetJob,getUserTest,testGetUserNotFound
   publish:
     executor: docker/docker
