@@ -76,7 +76,12 @@ jobs:
 workflows:
   ci_flow:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only:
+                - develop
+                - develop---jay        
       - test: 
           requires: 
             - build
