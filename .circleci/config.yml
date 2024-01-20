@@ -4,7 +4,8 @@ orbs:
   mvn-java-orb: rdoddi-pro/mvn-java-orb@0.5.1
   docker: circleci/docker@2.1.4
   heroku: circleci/heroku@2.0.0
-  synk: snyk/snyk@1.5.0
+  snyk: snyk/snyk@1.5.0
+
 
 jobs:
   build-and-test:
@@ -30,7 +31,7 @@ jobs:
       - run: docker build -t $IMAGE_NAME .
       - snyk/scan:
           docker-image-name: $IMAGE_NAME
-          severity-threshold: high
+          severity-threshold: high 
   publish:
     executor: docker/docker
     steps:
@@ -52,16 +53,11 @@ jobs:
       - docker/pull:
           images: hemma1108/job-finder:v1.0.1
       - run:
-          name: Heroku Container Push With Image From Docker Hub
           command: |
               heroku container:login
-              docker tag hemma1108/job-finder:v1.0.1 registry.heroku.com/job-finder/web
-              #format --- docker tag <image name from docker hub> registry.heroku.com/<app-name>/web
-              docker push registry.heroku.com/job-finder/web
-              #format --- docker push <registry.heroku.com/<app-name>/web [to push to heroku container registry]
-              heroku container:release web -a job-finder
-              # release once in heroku container
-
+              docker tag hemma1108/job-finder:v1.0.1 registry.heroku.com/job-finder-devops-project-test/web
+              docker push registry.heroku.com/job-finder-devops-project-test/web
+              heroku container:release web -a job-finder-devops-project-test
 workflows:
   ci_flow:
     jobs:
@@ -75,21 +71,15 @@ workflows:
             - build-and-test
   cicd_flow:
     jobs:
-      - build:
+      - build-and-test:
           filters:
             branches:
               only:
                 - release
-      - test: 
-          requires: 
-            - build
-          filters:
-            branches:
-              only:
-                - release
+                - release---hemma
       - publish:
           requires:
-            - test
+            - build-and-test
       - pull-and-deploy:
           requires: 
             - publish
@@ -97,4 +87,4 @@ workflows:
             branches:
               only:
                 - release
-
+                - release---hemma
