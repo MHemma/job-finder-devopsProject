@@ -52,7 +52,8 @@ public class JobControllerTest {
         mockMvc.perform(request)
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.size()").value(8));
+                .andExpect(jsonPath("$.size()").value(10
+                ));
     }
 
     @Test
