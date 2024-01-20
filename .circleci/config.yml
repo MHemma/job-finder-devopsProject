@@ -26,7 +26,19 @@ jobs:
           command: |
             echo "Running unit tests.."
             mvn test
-          # mvn -B test -Dtest=testGetJob,getUserTest,testGetUserNotFound
+  scan:
+    docker:
+      - image: cimg/node:16.10
+    environment:
+      IMAGE_NAME: hemma1108/job-finder
+    steps:
+      - checkout
+      - setup_remote_docker
+      - docker/check
+      - run: docker build -t $IMAGE_NAME .
+      - snyk/scan:
+          docker-image-name: $IMAGE_NAME
+          severity-threshold: high 
   publish:
     executor: docker/docker
     steps:
@@ -69,7 +81,10 @@ workflows:
             branches:
               only:
                 - develop
-                
+      - scan:
+          requires:
+            - build
+            - test
   cicd_flow:
     jobs:
       - build:
