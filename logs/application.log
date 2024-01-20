@@ -7829,3 +7829,41 @@ java.lang.NullPointerException: Cannot read field "generatedClass" because "data
 12:49:21.467 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8082 (http) with context path ''
 12:49:21.476 [restartedMain] INFO  c.e.jobfinder.JobFinderApplication - Started JobFinderApplication in 0.614 seconds (process running for 21947.336)
 12:49:21.477 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+10:54:29.200 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+10:54:29.278 [restartedMain] INFO  c.e.jobfinder.JobFinderApplication - Starting JobFinderApplication using Java 17.0.8 with PID 37243 (/Users/hemmamano/Desktop/ntu-sctp/job-finder-devopsProject/target/classes started by hemmamano in /Users/hemmamano/Desktop/ntu-sctp/job-finder-devopsProject)
+10:54:29.279 [restartedMain] INFO  c.e.jobfinder.JobFinderApplication - No active profile set, falling back to 1 default profile: "default"
+10:54:29.323 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+10:54:29.324 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+10:54:30.053 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:54:30.119 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 2 JPA repository interfaces.
+10:54:30.732 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 3030 (http)
+10:54:30.742 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-3030"]
+10:54:30.745 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+10:54:30.745 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+10:54:30.811 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+10:54:30.812 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1487 ms
+10:54:30.902 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+10:54:31.048 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:job-finder user=SA
+10:54:31.049 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+10:54:31.059 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2'. Database available at 'jdbc:h2:mem:job-finder'
+10:54:31.185 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:54:31.234 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.13.Final
+10:54:31.235 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+10:54:31.462 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+10:54:32.233 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+10:54:32.281 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:54:32.772 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:54:32.883 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+10:54:33.120 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+10:54:33.126 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+10:54:33.172 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-3030"]
+10:54:33.192 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 3030 (http) with context path ''
+10:54:33.206 [restartedMain] INFO  c.e.jobfinder.JobFinderApplication - Started JobFinderApplication in 4.259 seconds (process running for 4.834)
+10:54:35.258 [http-nio-3030-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:54:35.258 [http-nio-3030-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+10:54:35.260 [http-nio-3030-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+10:54:35.341 [http-nio-3030-exec-1] INFO  c.e.j.serviceImpls.JobServiceImpl - createJob method being called
+10:54:36.519 [http-nio-3030-exec-2] INFO  c.e.j.serviceImpls.JobServiceImpl - createJob method being called
+11:30:30.412 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51s547ms).
+11:32:29.759 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m59s347ms).
+11:33:59.692 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=59s917ms).
