@@ -7,27 +7,30 @@ orbs:
   synk: snyk/snyk@1.5.0
 
 jobs:
-  build:
+  build-and-test:
     docker:
       - image: cimg/openjdk:17.0.9
     steps:
       - checkout
-      - run: 
-          name: Install Dependencies and build 
-          command: |
-            echo "installing dependencies"
-            mvn install -DskipTests
-  test:
-    docker: 
-      - image: cimg/openjdk:17.0.9
-    steps:
-      - checkout
       - run:
-          name: Running tests
-          command: |
-            echo "Running unit tests.."
-            mvn test
-          # mvn -B test -Dtest=testGetJob,getUserTest,testGetUserNotFound
+          name: Build
+          command: mvn -B -DskipTests clean package
+      - run:
+          name: Test
+          command: mvn test
+    scan:
+      docker:
+        - image: cimg/node:16.10
+      environment:
+        IMAGE_NAME: hemma1108/job-finder
+      steps:
+        - checkout
+        - setup_remote_docker
+        - docker/check
+        - run: docker build -t $IMAGE_NAME .
+        - snyk/scan:
+            docker-image-name: $IMAGE_NAME
+            severity-threshold: high
   publish:
     executor: docker/docker
     steps:
@@ -62,18 +65,14 @@ jobs:
 workflows:
   ci_flow:
     jobs:
-      - build
-      - test: 
-          requires: 
-            - build
+      - build-and-test:
           filters:
             branches:
               only:
                 - develop
       - scan:
           requires:
-            - build
-            - test
+            - build-and-test
   cicd_flow:
     jobs:
       - build:
