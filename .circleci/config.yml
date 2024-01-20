@@ -16,10 +16,10 @@ jobs:
       - run:
           name: Build
           command: mvn package
-          # command: mvn -B -DskipTests clean package
-      # - run:
-      #     name: Test
-      #     command: mvn test
+          command: mvn -B -DskipTests clean package
+      - run:
+          name: Test
+          command: mvn test
   scan:
     docker:
       - image: cimg/node:16.10
